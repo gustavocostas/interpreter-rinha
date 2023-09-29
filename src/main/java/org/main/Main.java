@@ -11,9 +11,12 @@ import static org.interpreter.Interpreter.interpreter;
 public class Main {
     public static void main(String[] args) {
         try {
-            String filePath = "C:/Users/gusta/OneDrive/Área de Trabalho/projetos/rinha/src/main/java/org/example/sub.rinha.json";
+
+            // coloque o caminho do seu arquivo json(AST) aqui - put your json file(AST) path here
+            String filePath = "./rinha/src/main/java/org/example/soma.rinha.json";
             JsonNode rootNode = parseJsonFile(filePath);
             JsonNode expressionNode = rootNode.get("expression");
+
             interpreter(expressionNode);
         } catch (IOException e) {
             System.err.println("Error reading JSON file: " + e.getMessage());
