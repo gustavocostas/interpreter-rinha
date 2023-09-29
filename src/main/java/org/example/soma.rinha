@@ -1,0 +1,5 @@
+let soma = fn(a, b) => {
+a + b
+};
+
+print("Soma: " + soma(1, 2))
