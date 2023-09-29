@@ -12,8 +12,7 @@ public class Main {
     public static void main(String[] args) {
         try {
 
-            // coloque o caminho do seu arquivo json(AST) aqui - put your json file(AST) path here
-            String filePath = "./rinha/src/main/java/org/example/soma.rinha.json";
+            String filePath = "soma.rinha.json";
             JsonNode rootNode = parseJsonFile(filePath);
             JsonNode expressionNode = rootNode.get("expression");
 

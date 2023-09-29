@@ -1,5 +1,0 @@
-let sub = fn(a, b) => {
-a - b
-};
-
-print("Sub: " + sub(50, 18))
