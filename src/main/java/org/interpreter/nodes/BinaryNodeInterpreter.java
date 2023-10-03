@@ -2,7 +2,6 @@ package org.interpreter.nodes;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import static org.interpreter.Interpreter.interpretArguments;
 import static org.interpreter.Interpreter.interpreter;
 
 public class BinaryNodeInterpreter implements NodeInterpreter {
@@ -17,9 +16,22 @@ public class BinaryNodeInterpreter implements NodeInterpreter {
             interpreter(lhsNode);
             interpreter(rhsNode);
 
-            if (opNode.asText().equals("Add")) {
+            String operator = opNode.asText();
+            if (operator.equals("Add")) {
                 if (rhsNode.has("arguments")) {
                     interpretArguments(rhsNode.get("arguments"));
+                }
+            } else {
+                throw new UnsupportedOperationException("Operador desconhecido: " + operator);
+            }
+        }
+    }
+
+    public static void interpretArguments(JsonNode node) {
+        if (node.isArray()) {
+            for (JsonNode argument : node) {
+                if (argument.has("kind")) {
+                    interpreter(argument);
                 }
             }
         }

@@ -10,7 +10,7 @@ public class StrNodeInterpreter implements NodeInterpreter {
 
         if (isInPrintContext) {
             String value = node.get("value").asText();
-            System.out.println(value);
+            System.out.print(value);
         }
         isInPrintContext = false;
     }

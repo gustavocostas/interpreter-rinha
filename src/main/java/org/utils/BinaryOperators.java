@@ -17,6 +17,6 @@ public class BinaryOperators {
     }
 
     public static void printNumber() {
-        System.out.println(getNumber());
+        System.out.print(getNumber());
     }
 }

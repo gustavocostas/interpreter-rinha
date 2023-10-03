@@ -2,7 +2,6 @@ package org.interpreter.nodes;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import static org.interpreter.Interpreter.interpretParameters;
 import static org.interpreter.Interpreter.interpreter;
 
 public class FunctionNodeInterpreter implements NodeInterpreter {
@@ -17,6 +16,13 @@ public class FunctionNodeInterpreter implements NodeInterpreter {
         JsonNode valueNode = node.get("value");
         if (valueNode != null) {
             interpreter(valueNode);
+        }
+    }
+
+    public static void interpretParameters(JsonNode node) {
+        for (JsonNode parameter : node) {
+            parameter.get("text").asText();
+            return;
         }
     }
 }

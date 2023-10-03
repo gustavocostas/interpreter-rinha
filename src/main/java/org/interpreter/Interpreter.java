@@ -32,21 +32,4 @@ public class Interpreter {
 
         nodeInterpreter.interpret(node);
     }
-
-    public static void interpretArguments(JsonNode node) {
-        if (node.isArray()) {
-            for (JsonNode argument : node) {
-                if (argument.has("kind")) {
-                    interpreter(argument);
-                }
-            }
-        }
-    }
-
-    public static void interpretParameters(JsonNode node) {
-        for (JsonNode parameter : node) {
-            parameter.get("text").asText();
-            return;
-        }
-    }
 }

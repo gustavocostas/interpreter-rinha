@@ -10,9 +10,9 @@ import static org.interpreter.Interpreter.interpreter;
 
 public class Main {
     public static void main(String[] args) {
-        try {
+        String filePath = "soma.rinha.json";
 
-            String filePath = "soma.rinha.json";
+        try {
             JsonNode rootNode = parseJsonFile(filePath);
             JsonNode expressionNode = rootNode.get("expression");
 
